@@ -20,14 +20,14 @@ function getServiceStatus() {
 
 function renderStatus(status) {
 	const color = status ? 'green' : 'red';
-	const service = _('Vlmcsd KMS Server');
+	const service = _('KMS Service');
 	const running = status ? _('RUNNING') : _('NOT RUNNING');
 	return `<em><span style="color:${color}"><strong>${service} ${running}</strong></span></em>`;
 }
 
 return view.extend({
 	render() {
-		const m = new form.Map('vlmcsd', _('Vlmcsd KMS Server'));
+		const m = new form.Map('vlmcsd', _('KMS Service'));
 
 		let s = m.section(form.TypedSection);
 		s.anonymous = true;
@@ -49,7 +49,7 @@ return view.extend({
 		s.tab('general', _('General Settings'));
 		s.tab('config_file', _('Configuration File'), _('Edit the content of the /etc/vlmcsd.ini file.'));
 
-		s.taboption('general', form.Flag, 'enabled', _('Enable Vlmcsd KMS Server'));
+		s.taboption('general', form.Flag, 'enabled', _('Enable KMS Service'));
 		s.taboption('general', form.Flag, 'auto_activate', _('Allow automatic activation'));
 		s.taboption('general', form.Flag, 'internet_access', _('Allow connection from Internet'));
 
